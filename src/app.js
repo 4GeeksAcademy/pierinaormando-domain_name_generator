@@ -1,16 +1,25 @@
-let pronoun = ["the", "our"];
-let adj = ["great", "big"];
-let noun = ["jogger", "racoon", "puedes", "lastofus"];
+let pronouns = ["the", "our"];
+let adjetives = ["great", "big"];
+let nouns = ["jogger", "racoon", "puedes", "lastofus"];
 let extensions = [".com", "net", ".us", ".io"];
 
-for (let i = 0; i < pronoun.length; i++) {
-  for (let j = 0; j < adj.length; j++) {
-    for (let k = 0; k < noun.length; k++) {
-      //  los elementos (i) de cada array para formar un nombre de dominio
-      for (let z = 0; z < extensions.length; z++) {
-        let domainName = pronoun[i] + adj[j] + noun[k] + extensions[z];
-        console.log(domainName);
+function generateDomainNames() { // Toma un elemento de cada arreglo, crea variaciones de posibles dominios y almacena cada uno en el nuevo arreglo creado
+  let domainNames = [];
+
+  for (let i = 0; i < pronouns.length; i++) {
+    for (let j = 0; j < adjetives.length; j++) {
+      for (let k = 0; k < nouns.length; k++) {
+        for (let z = 0; z < extensions.length; z++) {
+          let domainName = pronouns[i] + adjetives[j] + nouns[k] + extensions[z];
+        domainNames.push(domainName); 
+        }
       }
     }
   }
+
+  return domainNames;
 }
+
+const generatedDomains = generateDomainNames();
+
+console.log(generatedDomains);
